@@ -18,6 +18,10 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+//routes for the timestamp or date api
+app.get("/api", (_, res) => {
+  res.json(dateToJson(new Date()))
+})
 app.get("/api/(:timestampOrDate)", (req, res) => {
   res.json(dateToJson(stringToDate(req.params['timestampOrDate'])))
 })
